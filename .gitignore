@@ -8,7 +8,8 @@
 *.out
 
 # Go modules
-/go.sum
+**/go.mod
+**/go.sum
 /go/pkg/mod/
 
 # Vendor directory 
