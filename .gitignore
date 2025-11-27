@@ -1,0 +1,35 @@
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go modules
+/go.sum
+/go/pkg/mod/
+
+# Vendor directory 
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Docker
+docker-compose.override.yml
+**/tmp/
+**/log/
+**/data/
+
+# Kafka / Zookeeper data 
+kafka-data/
+zookeeper-data/
+
+# Environment files
+.env
