@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'go_consumer'
+    static_configs:
+      - targets: ['host.docker.internal:8080']  # update if your Go consumer exposes metrics
+
+  - job_name: 'loki'
+    static_configs:
+      - targets: ['loki:3100']
