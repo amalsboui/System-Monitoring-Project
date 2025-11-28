@@ -1,4 +1,4 @@
-module generator
+module Event
 
 go 1.25.4
 

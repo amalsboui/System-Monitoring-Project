@@ -2,31 +2,18 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
 	"log"
 	"math/rand"
 	"time"
+	"encoding/json"
+
+	"Event/models"
+	"Event/utils"
 
 	"github.com/segmentio/kafka-go"
 )
 
-//Event structure
-type SystemEvent struct{
-	Hostname     string  `json:"hostname"`
-	CPUUser      float64 `json:"cpu_user"`
-	CPUSystem    float64 `json:"cpu_system"`
-	CPUIdle      float64 `json:"cpu_idle"`
-	MemoryUsed   float64 `json:"memory_used_gb"`
-	MemoryFree   float64 `json:"memory_free_gb"`
-	MemoryCache  float64 `json:"memory_cache_gb"`
-	DiskUsed     float64 `json:"disk_used_gb"`
-	DiskFree     float64 `json:"disk_free_gb"`
-	DiskIO       float64 `json:"disk_io_mb_s"`
-	NetIn        float64 `json:"net_in_mb_s"`
-	NetOut       float64 `json:"net_out_mb_s"`
-	Timestamp    string  `json:"timestamp"`
-}
+
 
 var servers = []string{"server1", "server2", "server3"}
 
@@ -35,12 +22,12 @@ func randomFloat(min, max float64) float64 {
 	//to generate random float
 }
 
-func generateEvent() SystemEvent {//systemevent houa return type
+func generateEvent() models.SystemEvent {//systemevent houa return type
 	cpuUser := randomFloat(10,80)
 	cpuSystem := randomFloat(5,30)
 	cpuIdle := 100 - cpuUser -cpuSystem
 
-	return SystemEvent{
+	return models.SystemEvent{
 		Hostname: servers[rand.Intn(len(servers))],
 		CPUUser: cpuUser,
 		CPUSystem: cpuSystem,
@@ -57,10 +44,10 @@ func generateEvent() SystemEvent {//systemevent houa return type
 	}
 }
 
-func sendToKafka(writer *kafka.Writer, event SystemEvent){
+func sendToKafka(writer *kafka.Writer, event models.SystemEvent){
 	data, err := json.Marshal(event) //event struct to json
 	if err!= nil{
-		log.Println("Error marshaling event", err)
+		log.Println("Error marshaling event"+ err.Error())
 		return
 	}
 	err = writer.WriteMessages(context.Background(),
@@ -70,15 +57,14 @@ func sendToKafka(writer *kafka.Writer, event SystemEvent){
 		},
 	)
 	if err!= nil{
-		log.Println("Error sending to Kafka", err)
+		log.Println("Error sending to Kafka"+ err.Error())
 		return
 	}
-	prettyJSON, _ := json.MarshalIndent(event, "", "  ")
-    log.Println(string(prettyJSON))
+	utils.PrettyPrint(&event)
 }
 
 func main(){
-	fmt.Println("Starting Event Generator...")
+	log.Println("Starting Event Generator...")
 
 	writer := kafka.NewWriter(kafka.WriterConfig{
 		Brokers: []string{"localhost:9092"},
