@@ -9,6 +9,7 @@ import (
 	"Event/models"
 
 	"github.com/segmentio/kafka-go"
+	"os"
 )
 
 
@@ -44,6 +45,12 @@ func generateEvent() models.SystemEvent {//systemevent houa return type
 
 
 func main(){
+	file, err := os.OpenFile("../logs/producer.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.SetOutput(file)
+
 	log.Println("Starting Event Generator...")
 
 	writer := kafka.NewWriter(kafka.WriterConfig{

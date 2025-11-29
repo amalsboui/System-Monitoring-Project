@@ -37,3 +37,6 @@ zookeeper-data/
 
 # Environment files
 .env
+
+
+logs/
