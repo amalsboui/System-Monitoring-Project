@@ -38,5 +38,12 @@ zookeeper-data/
 # Environment files
 .env
 
+# Logs
+logs/*.log
 
-logs/
+# Loki runtime data
+loki/chunks
+loki/index
+loki/wal
+loki/var-loki
+loki/cache
