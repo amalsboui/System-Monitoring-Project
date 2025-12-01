@@ -45,7 +45,7 @@ func generateEvent() models.SystemEvent {//systemevent houa return type
 
 
 func main(){
-	file, err := os.OpenFile("../logs/producer.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	file, err := os.OpenFile("/app/logs/producer.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -54,7 +54,7 @@ func main(){
 	log.Println("Starting Event Generator...")
 
 	writer := kafka.NewWriter(kafka.WriterConfig{
-		Brokers: []string{"localhost:9092"},
+		Brokers: []string{"kafka:9092"},
 		Topic: "system.metrics",
 	})
 	defer writer.Close()

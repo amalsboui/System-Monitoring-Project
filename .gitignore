@@ -39,7 +39,7 @@ zookeeper-data/
 .env
 
 # Logs
-logs/*.log
+app/logs/*.log
 
 # Loki runtime data
 loki/chunks
