@@ -17,7 +17,10 @@ func PrettyPrint(event *models.SystemEvent) {
 	fmt.Println(string(data))
 }
 
-// LogAlert prints a log alert
-func LogAlert(msg string) {
-	log.Println("⚠️ ", msg)
+
+
+
+func LogAlert(hostname, alertType string, value float64, unit string) {
+    log.Printf("type=alert hostname=%s alert=%s value=%.2f unit=%s", 
+        hostname, alertType, value, unit)
 }

@@ -1,8 +1,6 @@
 package processor
 
 import (
-	"fmt"
-
 	"Event/models"
 	"Event/utils"
 )
@@ -18,24 +16,26 @@ func ProcessEvent(event *models.SystemEvent) {
 
 	// CPU alert
 	if totalCPU > 80 {
-		utils.LogAlert(event.Hostname + " CPU high: " + fmt.Sprintf("%.2f", totalCPU) + "%")
+		utils.LogAlert(event.Hostname, "cpu", totalCPU, "%")
 	}
 	// Memory alert
 	if event.MemoryUsed > 10 {
-		utils.LogAlert(event.Hostname + " Memory high: " + fmt.Sprintf("%.2f", event.MemoryUsed) + " GB")
+		utils.LogAlert(event.Hostname, "memory", event.MemoryUsed, "GB")
 	}
 	// Disk alert
 	if event.DiskUsed > 180 {
-		utils.LogAlert(event.Hostname + " Disk high: " + fmt.Sprintf("%.2f", event.DiskUsed) + " GB")
+		utils.LogAlert(event.Hostname, "disk", event.DiskUsed, "GB")
 	}
 	// Disk IO alert
 	if event.DiskIO > 40 {
-		utils.LogAlert(event.Hostname + " Disk I/O high: " + fmt.Sprintf("%.2f", event.DiskIO) + " MB/s")
+		utils.LogAlert(event.Hostname, "disk_io", event.DiskIO, "MB/s")
 	}
-	// Network alert
-	if event.NetIn > 30 || event.NetOut > 30 {
-		utils.LogAlert(event.Hostname + " Network high: In " + fmt.Sprintf("%.2f", event.NetIn) +
-			" MB/s, Out " + fmt.Sprintf("%.2f", event.NetOut) + " MB/s")
+	// Network alert - log both separately
+	if event.NetIn > 30 {
+		utils.LogAlert(event.Hostname, "net_in", event.NetIn, "MB/s")
+	}
+	if event.NetOut > 30 {
+		utils.LogAlert(event.Hostname, "net_out", event.NetOut, "MB/s")
 	}
 
 	utils.PrettyPrint(event)
