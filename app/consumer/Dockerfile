@@ -20,4 +20,6 @@ RUN go mod download
 # Build consumer
 RUN cd consumer && go build -o /consumer
 
+EXPOSE 2112
+
 CMD ["/consumer"]

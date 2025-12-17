@@ -19,6 +19,10 @@ func main() {
 
 	log.Println(("Starting Event Consumer..."))
 
+	//Prometheus
+	InitMetrics()
+	StartMetricsServer()
+
 	reader:= kafka.NewReader(kafka.ReaderConfig{
 		Brokers: []string{"kafka:9092"},
 		Topic: "system.metrics",
@@ -28,6 +32,10 @@ func main() {
 
 	for{
 		event := kafkahelper.ReadEvent(reader)
+		// Alerts + logs
 		processor.ProcessEvent(event)
+
+		//Metrics
+		UpdateMetrics(event)
 	}
 }
