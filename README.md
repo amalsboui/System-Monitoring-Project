@@ -1,7 +1,8 @@
-# Distributed System Monitoring Pipeline
+# System Monitoring Project
 
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=golang&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apache-kafka&logoColor=white)
 ![Zookeeper](https://img.shields.io/badge/Zookeeper-1C4587?style=flat-square&logo=apache-zookeeper&logoColor=white)
 ![Promtail](https://img.shields.io/badge/Promtail-00B4D8?style=flat-square&logo=promtail&logoColor=white)
@@ -12,9 +13,7 @@
 
 ---
 
-# System Monitoring Project
-
-## 📌 Project Overview
+##  Project Overview
 
 This project implements a **distributed monitoring and observability system** using an **event-driven architecture**.
 
