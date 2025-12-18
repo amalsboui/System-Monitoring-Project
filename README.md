@@ -1,6 +1,5 @@
 # Distributed System Monitoring Pipeline
 
-**Kafka · Go · Prometheus · Loki · Grafana · Docker**
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=golang&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apache-kafka&logoColor=white)
@@ -104,7 +103,7 @@ System metrics are **produced, streamed, processed, logged, stored, and visualiz
 ## 📊 Visualization
 
 <p align="center">
-  <img src="./Visualization.png" alt="Project Pipeline" width="485"/>
+  <img src="./Visualization.png" alt="Project Pipeline" width="650"/>
 </p>
 
 Typical panels include:
@@ -121,7 +120,8 @@ Typical panels include:
 
 ```bash
 docker compose build
-docker compose up ```
+docker compose up 
+```
 
 ## 🔌 Services & Ports
 
