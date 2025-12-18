@@ -2,14 +2,14 @@
 
 **Kafka · Go · Prometheus · Loki · Grafana · Docker**
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/cncf/artwork/main/projects/kafka/icon/color/kafka-icon-color.png" width="60"/>
-  <img src="https://raw.githubusercontent.com/cncf/artwork/main/projects/prometheus/icon/color/prometheus-icon-color.png" width="60"/>
-  <img src="https://raw.githubusercontent.com/cncf/artwork/main/projects/grafana/icon/color/grafana-icon-color.png" width="60"/>
-  <img src="https://raw.githubusercontent.com/grafana/loki/main/docs/sources/logo.png" width="60"/>
-  <img src="https://raw.githubusercontent.com/docker-library/docs/master/golang/logo.png" width="60"/>
-  <img src="https://raw.githubusercontent.com/docker-library/docs/master/docker/logo.png" width="60"/>
-</p>
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=golang&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apache-kafka&logoColor=white)
+![Zookeeper](https://img.shields.io/badge/Zookeeper-1C4587?style=flat-square&logo=apache-zookeeper&logoColor=white)
+![Promtail](https://img.shields.io/badge/Promtail-00B4D8?style=flat-square&logo=promtail&logoColor=white)
+![Loki](https://img.shields.io/badge/Loki-0F0F0F?style=flat-square&logo=loki&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-1E90FF?style=flat-square&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
+
 
 ---
 
@@ -104,7 +104,7 @@ System metrics are **produced, streamed, processed, logged, stored, and visualiz
 ## 📊 Visualization
 
 <p align="center">
-  <img src="./Visualisation.png" alt="Project Pipeline" width="485"/>
+  <img src="./Visualization.png" alt="Project Pipeline" width="485"/>
 </p>
 
 Typical panels include:
@@ -121,7 +121,7 @@ Typical panels include:
 
 ```bash
 docker compose build
-docker compose up
+docker compose up ```
 
 ## 🔌 Services & Ports
 
