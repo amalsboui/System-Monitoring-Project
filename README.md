@@ -103,7 +103,7 @@ System metrics are **produced, streamed, processed, logged, stored, and visualiz
 ## 📊 Visualization
 
 <p align="center">
-  <img src="./Visualization.png" alt="Project Pipeline" width="650"/>
+  <img src="./Visualization.png" alt="Project Pipeline" width="800"/>
 </p>
 
 Typical panels include:
@@ -123,7 +123,7 @@ docker compose build
 docker compose up 
 ```
 
-## 🔌 Services & Ports
+### 🔌 Services & Ports
 
 | Service     | Address                  |
 |------------|---------------------------|
@@ -134,16 +134,16 @@ docker compose up
 
 ---
 
-## 📡 Grafana Data Sources Setup
+### 📡 Grafana Data Sources Setup
 
-### Prometheus
+#### Prometheus
 - **Type:** Prometheus  
 - **URL:**  http://prometheus:9090
 
 
-### Loki
+#### Loki
 - **Type:** Loki  
-- **URL:**  
+- **URL:**  http://loki:3100
 
 
 After adding both data sources, **Grafana can correlate metrics and logs within the same dashboards**, enabling efficient observability and debugging.
